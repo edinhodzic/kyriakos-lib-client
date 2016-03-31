@@ -57,9 +57,9 @@ abstract class AbstractHttpCrudClient[T <: Identifiable]
 
   private[client] def invoke(httpRequest: HttpRequest): Future[HttpResponse] = {
     val path: String = httpRequest.getUri path
-    val url: String = s"$serviceHost$path"
-    logger debug s"invoking ${httpRequest.method value} $url"
-    Http().singleRequest(httpRequest withUri url)
+    val uri: String = s"$serviceHost$path"
+    logger debug s"invoking ${httpRequest.method value} $uri"
+    Http().singleRequest(httpRequest withUri uri)
   }
 
   private def extractEntity(httpResponse: HttpResponse): Future[T] =
