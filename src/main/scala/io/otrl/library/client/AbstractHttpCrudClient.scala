@@ -10,7 +10,7 @@ import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.ActorMaterializer
 import com.typesafe.scalalogging.LazyLogging
 import io.otrl.library.client.AbstractHttpCrudClient._
-import io.otrl.library.crud.AsyncPartialCrudOperations
+import io.otrl.library.crud.AsyncCrudOperations
 import io.otrl.library.domain.Identifiable
 import org.json4s._
 import org.json4s.jackson.Serialization.write
@@ -23,7 +23,7 @@ import scala.language.postfixOps
 abstract class AbstractHttpCrudClient[T <: Identifiable]
 (serviceHost: String)
 (implicit actorSystem: ActorSystem, executionContext: ExecutionContext, manifest: Manifest[T])
-  extends AsyncPartialCrudOperations[T] with LazyLogging {
+  extends AsyncCrudOperations[T] with LazyLogging {
 
   implicit val actorMaterializer = ActorMaterializer()
   implicit val defaultFormats = DefaultFormats
@@ -35,7 +35,8 @@ abstract class AbstractHttpCrudClient[T <: Identifiable]
       httpResponse status match {
         case Created => extractEntity(httpResponse)
         case statusCode => failWithException(POST, statusCode)
-      }}
+      }
+    }
 
   override def read(resourceId: String): Future[Option[T]] =
     invoke(httpRequest(GET, s"/$resourceName/$resourceId")) flatMap (httpResponse =>
@@ -45,7 +46,11 @@ abstract class AbstractHttpCrudClient[T <: Identifiable]
         case statusCode => failWithException(GET, statusCode)
       })
 
-  // TODO update
+  override def update(resource: T): Future[Option[T]] =
+    throw new UnsupportedOperationException("not yet implemented")
+
+  override def update(resourceId: String, updatePayload: String): Future[Option[AnyRef]] =
+    throw new UnsupportedOperationException("not yet implemented")
 
   override def delete(resourceId: String): Future[Option[Unit]] =
     invoke(httpRequest(DELETE, s"/$resourceName/$resourceId")) flatMap (httpResponse =>
