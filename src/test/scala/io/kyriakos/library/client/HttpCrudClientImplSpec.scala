@@ -1,11 +1,11 @@
-package io.otrl.library.client
+package io.kyriakos.library.client
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model.HttpEntity.Strict
 import akka.http.scaladsl.model.HttpMethods.{DELETE, GET, POST}
 import akka.http.scaladsl.model.StatusCodes.{Created, NoContent, NotFound, OK}
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpRequest, HttpResponse, Uri}
-import io.otrl.library.client.domain.Resource
+import io.kyriakos.library.client.domain.Resource
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationWithJUnit
 

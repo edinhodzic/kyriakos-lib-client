@@ -1,4 +1,4 @@
-package io.otrl.library.client
+package io.kyriakos.library.client
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
@@ -9,9 +9,9 @@ import akka.http.scaladsl.model._
 import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.ActorMaterializer
 import com.typesafe.scalalogging.LazyLogging
-import io.otrl.library.client.AbstractHttpCrudClient._
-import io.otrl.library.crud.AsyncCrudOperations
-import io.otrl.library.domain.Identifiable
+import AbstractHttpCrudClient._
+import io.kyriakos.library.crud.AsyncCrudOperations
+import io.kyriakos.library.domain.Identifiable
 import org.json4s._
 import org.json4s.jackson.Serialization.write
 import org.json4s.native.JsonMethods._

@@ -1,21 +1,21 @@
 import sbt._
 
-organization := "io.otrl.library"
+organization := "io.kyriakos.library"
 
-name := "otrl-lib-client"
+name := "kyriakos-lib-client"
 
 version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
-lazy val otrlLibCrudClient = project.in(file("."))
+lazy val kyriakosLibCrudClient = project.in(file("."))
 
 libraryDependencies ++= Seq(
   // scala
   "org.scala-lang" % "scala-library" % "2.11.7",
-  // otrl
-  "io.otrl.library" % "otrl-lib-domain_2.11" % "0.5.0-SNAPSHOT",
-  "io.otrl.library" % "otrl-lib-crud_2.11" % "0.1.0-SNAPSHOT",
+  // kyriakos
+  "io.kyriakos.library" % "kyriakos-lib-domain_2.11" % "0.5.0-SNAPSHOT",
+  "io.kyriakos.library" % "kyriakos-lib-crud_2.11" % "0.1.0-SNAPSHOT",
   // json4s
   "org.json4s" % "json4s-native_2.11" % "3.3.0",
   "org.json4s" % "json4s-ext_2.11" % "3.3.0",
@@ -32,12 +32,8 @@ libraryDependencies ++= Seq(
   "org.specs2" % "specs2-mock_2.11" % "3.6.6" % "test"
 )
 
-publishTo := Some("OTRL" at "https://mvn.otrl.io")
-
 ivyScala := ivyScala.value map {
   _.copy(overrideScalaVersion = true)
 }
-
-publishTo := Some("OTRL" at "https://mvn.otrl.io")
 
 scalacOptions ++= Seq("-deprecation", "-feature")
