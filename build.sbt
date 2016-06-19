@@ -26,8 +26,8 @@ libraryDependencies ++= Seq(
   // scala
   "org.scala-lang" % "scala-library" % "2.11.7",
   // kyriakos
-  "io.kyriakos.library" % "kyriakos-lib-domain_2.11" % "0.5.0-SNAPSHOT",
-  "io.kyriakos.library" % "kyriakos-lib-crud_2.11" % "0.1.0-SNAPSHOT",
+  "io.kyriakos.library" % "kyriakos-lib-domain_2.11" % "1.0.0",
+  "io.kyriakos.library" % "kyriakos-lib-crud_2.11" % "1.0.0",
   // json4s
   "org.json4s" % "json4s-native_2.11" % "3.3.0",
   "org.json4s" % "json4s-ext_2.11" % "3.3.0",
