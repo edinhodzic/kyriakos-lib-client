@@ -2,6 +2,8 @@
 
 A http client abstraction library based on [Akka HTTP](http://doc.akka.io/docs/akka-stream-and-http-experimental/current/scala/http/).
 
+[![Build Status](https://travis-ci.org/edinhodzic/kyriakos-lib-client.svg?branch=master)](https://travis-ci.org/edinhodzic/kyriakos-lib-client)
+
 # What's under the hood?
 
 Implementation:
